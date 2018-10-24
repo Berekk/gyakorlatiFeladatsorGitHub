@@ -22,34 +22,24 @@ namespace gyakorlatiFeladatsorGitHub
 
         static void bekeres()
         {
-            int mennyiseg = 0;
-            bool b = true;
-            while (b)
-            {
+            int mennyiseg;
+
                 Console.Write("mennyi számot akarsz beadni: ");
                 try
                 {
                     mennyiseg = Convert.ToInt32(Console.ReadLine());
-                    if (mennyiseg>0)
-                    {
-                    b = false;
-                    }
-
                 }
                 catch (Exception)
                 {
-
+                throw new System.ArgumentException("nem jó számot adtál meg!", "original"); 
                 }
 
 
-            }
+            
 
             bekertek = new int[mennyiseg];
             Console.WriteLine("adj meg {0} számot:", mennyiseg);
            
-            int r;
-            
-            Random rnd = new Random();
 
             for (int i = 0; i < bekertek.Length; i++)
             {
@@ -57,19 +47,9 @@ namespace gyakorlatiFeladatsorGitHub
                 {
                     bekertek[i] = Convert.ToInt32(Console.ReadLine());
                 }
-                catch (FormatException e)
+                catch (Exception)
                 {
-                    
-                    
-                    Console.WriteLine("random számok:");
-                    for (int j = i; j < bekertek.Length; j++)
-                    {
-
-                        r = rnd.Next(0, 101);
-                        Console.WriteLine(r);
-                        bekertek[j] = r;
-                    }
-                    i = bekertek.Length;
+                    throw new System.ArgumentException("nem jó számot adtál meg!", "original");
                 }
             }
 
