@@ -8,7 +8,7 @@ namespace gyakorlatiFeladatsorGitHub
     {
         static void Main(string[] args)
         {
-            bekeres(10);
+            bekeres();
             tombKiiratas(bekertek);
             max(bekertek);
 
@@ -20,8 +20,30 @@ namespace gyakorlatiFeladatsorGitHub
 
         static int[] bekertek;
 
-        static void bekeres(int mennyiseg)
+        static void bekeres()
         {
+            int mennyiseg = 0;
+            bool b = true;
+            while (b)
+            {
+                Console.Write("mennyi számot akarsz beadni: ");
+                try
+                {
+                    mennyiseg = Convert.ToInt32(Console.ReadLine());
+                    if (mennyiseg>0)
+                    {
+                    b = false;
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                }
+
+
+            }
+
             bekertek = new int[mennyiseg];
             Console.WriteLine("adj meg {0} számot:", mennyiseg);
            
@@ -56,6 +78,7 @@ namespace gyakorlatiFeladatsorGitHub
 
         static void tombKiiratas(int[] tomb)
         {
+            Console.WriteLine("bevitt értékek: ");
             for (int i = 0; i < tomb.Length-1; i++)
             {
                 Console.Write(tomb[i]+", ");
