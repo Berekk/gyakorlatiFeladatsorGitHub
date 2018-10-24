@@ -11,7 +11,7 @@ namespace gyakorlatiFeladatsorGitHub
             bekeres();
             tombKiiratas(bekertek);
             max(bekertek);
-
+            min(bekertek);
 
 
             Console.WriteLine("any key for exit");
@@ -100,7 +100,18 @@ namespace gyakorlatiFeladatsorGitHub
             Console.WriteLine("legnagyobb érték: "+ max);
         }
 
-
+        static void min(int[] tomb)
+        {
+            int min = tomb[0];
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                if (tomb[i] < min)
+                {
+                    min = tomb[i];
+                }
+            }
+            Console.WriteLine("legkisebb érték: " + min);
+        }
 
     }
 }
